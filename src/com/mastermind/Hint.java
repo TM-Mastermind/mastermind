@@ -8,28 +8,32 @@ public class Hint {
     private int partialCorrect;
 
     public void generateHint(Map<Integer,String> solution, Map<Integer,String> guess) {
-        int black = 0;
-        int white = 0;
+        int corCounter = 0;
+        int parCounter = 0;
+        Map<Integer,String> tempGuess = guess;
+        Map<Integer,String> tempSolution = solution;
+
         for(int i = 0; i < 5; i++){
-            if(solution.get(i).equals(guess.get(i))) {
-                black++;
-                guess.put(i,"correct");
-                solution.put(i, "checkedCorrect");
+            if(tempSolution.get(i).equals(tempGuess.get(i))) {
+                corCounter++;
+                tempGuess.put(i,"correct");
+                tempSolution.put(i, "checkedCorrect");
             }
         }
         for(int i = 0; i < 5; i++) {
-            if(solution.containsValue(guess.get(i))) {
+            if(tempSolution.containsValue(tempGuess.get(i))) {
                 //add a second for loop to find the key that matches? ugh! it will work but...
                 for(int j = 0; j < 5; j++) {
-                    if(solution.get(j).equals(guess.get(i))) {
-                        white++;
-                        solution.put(j,"checked");
+                    if(tempSolution.get(j).equals(tempGuess.get(i))) {
+                        parCounter++;
+                        tempSolution.put(j,"checked");
+                        tempSolution.put(i, "checkedPartial");
                     }
                 }
             }
         }
-        setCorrect(black);
-        setPartialCorrect(white);
+        setCorrect(corCounter);
+        setPartialCorrect(parCounter);
     }
 
     public int getCorrect() {
