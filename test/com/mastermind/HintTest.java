@@ -9,15 +9,17 @@ import java.util.Map;
 import static org.junit.Assert.*;
 
 public class HintTest {
-    Map<Integer,String> sol = new HashMap<>();
+    Solution sol = new Solution();
+    GameBoard g1 = new GameBoard(sol);
+//    Map<Integer,String> sol = new HashMap<>();
     Guess guess;
     @Before
     public void setUp() {
-        sol.put(0,"R");
-        sol.put(1,"O");
-        sol.put(2,"Y");
-        sol.put(3,"R");
-        sol.put(4,"G");
+//        sol.put(0,"R");
+//        sol.put(1,"O");
+//        sol.put(2,"Y");
+//        sol.put(3,"R");
+//        sol.put(4,"G");
 
         Map<Integer,String> g1 = new HashMap<>();
         g1.put(0,"O");

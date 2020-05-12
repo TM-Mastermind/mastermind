@@ -17,14 +17,20 @@ public class Player {
         name = sc.nextLine();
     }
 
-    public Player(String name) {
-        this.name = name;
+    public boolean showInstructions(){
+        String instructions = "This is how you play...";
+        System.out.println("Hi " + getName() + " do you want to view the game instructions? enter Y/N");
+        String insAnswer = sc.nextLine().toUpperCase();
+        if(insAnswer.contains("Y")){
+            System.out.println(instructions);
+        }
+        return true;
     }
+
 
     public void makeGuess(Solution solution) {
         System.out.println("Enter five colors then press enter/return ");
-//        Scanner scanInGuess = new Scanner(System.in);
-        String inputGuess = sc.nextLine();
+        String inputGuess = sc.nextLine().toUpperCase().trim();
         Map<Integer,String> map = new HashMap<>();
         for(int i = 0; i < inputGuess.length(); i++){
             map.put(i,inputGuess.substring(i,i+1));

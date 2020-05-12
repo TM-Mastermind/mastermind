@@ -12,19 +12,15 @@ public class Game {
 
 
     public void start(){
+        Player p1 = new Player();
+        p1.showInstructions();
+        System.out.println("Okay " + p1.getName() + ", get ready to play Mastermind");
         Solution sol = new Solution();
         GameBoard g1 = new GameBoard(sol);
         setSolution(sol);
         solution.generateColorSequence();
-//        System.out.println("Name: ");
-//        Scanner scanIn = new Scanner(System.in);
-//        String inputString = scanIn.nextLine();
-//        Player p1 = new Player(inputString);
-        Player p1 = new Player();
-        System.out.println("Welcome " + p1.getName() + ", get ready to play Mastermind");
         g1.setPlayer(p1);
         System.out.println(solution.getColorSequence()); //**Uncomment to check solution at Start
-
 
         for(int i = 0; i < getRounds(); i++){
             p1.makeGuess(getSolution());
