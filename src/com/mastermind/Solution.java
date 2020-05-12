@@ -3,6 +3,7 @@ package com.mastermind;
 import java.util.HashMap;
 
 import java.util.Map;
+import java.util.Scanner;
 
 import static java.util.Map.entry;
 import static java.util.Map.ofEntries;
@@ -19,15 +20,24 @@ public class Solution {
             entry(8,"S")
     );
    private Map<Integer,String> colorSequence;
+   private int length;
+
+    public Solution(){
+       System.out.println("Enter the length of the sequence 3-9");
+        Scanner sc = new Scanner(System.in);
+        length = sc.nextInt();
+   }
 
     public void generateColorSequence() {
         //List<String> colors = new ArrayList<>();
         Map<Integer,String> colors = new HashMap<>();
-        colors.put(0, ALL_COLORS.get(getRandom()));
-        colors.put(1, ALL_COLORS.get(getRandom()));
-        colors.put(2, ALL_COLORS.get(getRandom()));
-        colors.put(3, ALL_COLORS.get(getRandom()));
-        colors.put(4, ALL_COLORS.get(getRandom()));
+        for (int i = 0; i < getLength(); i++) {
+            colors.put(i, ALL_COLORS.get(getRandom()));
+        }
+//        colors.put(1, ALL_COLORS.get(getRandom()));
+//        colors.put(2, ALL_COLORS.get(getRandom()));
+//        colors.put(3, ALL_COLORS.get(getRandom()));
+//        colors.put(4, ALL_COLORS.get(getRandom()));
         setColorSequence(colors);
     }
 
@@ -43,5 +53,13 @@ public class Solution {
 
     public void setColorSequence(Map<Integer, String> colorSequence) {
         this.colorSequence = colorSequence;
+    }
+
+    public int getLength() {
+        return length;
+    }
+
+    public void setLength(int length) {
+        this.length = length;
     }
 }

@@ -7,9 +7,15 @@ import java.util.Scanner;
 import java.util.List;
 
 public class Player {
-    private String name = "Player1";
-    private List<Guess> guess = new ArrayList<>();
+    private String name;
+    private List<Guess> playerGuess = new ArrayList<>();
     private List<Hint> hint = new ArrayList<>();
+    Scanner sc = new Scanner(System.in);
+
+    public Player(){
+        System.out.println("Please enter your name:");
+        name = sc.nextLine();
+    }
 
     public Player(String name) {
         this.name = name;
@@ -17,16 +23,15 @@ public class Player {
 
     public void makeGuess(Solution solution) {
         System.out.println("Enter five colors then press enter/return ");
-        Scanner scanInGuess = new Scanner(System.in);
-        String inputGuess = scanInGuess.nextLine();
-        System.out.println("You entered entered : " + inputGuess);
+//        Scanner scanInGuess = new Scanner(System.in);
+        String inputGuess = sc.nextLine();
         Map<Integer,String> map = new HashMap<>();
         for(int i = 0; i < inputGuess.length(); i++){
             map.put(i,inputGuess.substring(i,i+1));
         }
         Guess guess = new Guess(map);
-        setGuess(guess);
-        Hint hint = new Hint();
+        setPlayerGuess(guess);
+        Hint hint = new Hint(solution);
         hint.generateHint(solution.getColorSequence(),guess.getGuess());
         setHint(hint);
     }
@@ -39,12 +44,12 @@ public class Player {
         this.name = name;
     }
 
-    public List<Guess> getGuess() {
-        return guess;
+    public List<Guess> getPlayerGuess() {
+        return playerGuess;
     }
 
-    public void setGuess(Guess guess) {
-        this.guess.add(guess);
+    public void setPlayerGuess(Guess guess) {
+        this.playerGuess.add(guess);
     }
 
     public List<Hint> getHint() {
