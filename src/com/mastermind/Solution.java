@@ -13,10 +13,10 @@ public class Solution {
             entry(2,"O"),
             entry(3,"Y"),       //should we put this in its own file? In a util package?
             entry(4,"G"),
-            entry(5,"BL"),
+            entry(5,"B"),
             entry(6,"P"),
             entry(7,"W"),
-            entry(8,"BK")
+            entry(8,"S")
     );
    private Map<Integer,String> colorSequence;
 

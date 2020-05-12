@@ -1,5 +1,6 @@
 package com.mastermind;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -10,8 +11,8 @@ public class Hint {
     public void generateHint(Map<Integer,String> solution, Map<Integer,String> guess) {
         int corCounter = 0;
         int parCounter = 0;
-        Map<Integer,String> tempGuess = guess;
-        Map<Integer,String> tempSolution = solution;
+        Map<Integer, String> tempGuess = new HashMap<>(guess);
+        Map<Integer, String> tempSolution = new HashMap<>(solution);
 
         for(int i = 0; i < 5; i++){
             if(tempSolution.get(i).equals(tempGuess.get(i))) {
@@ -27,7 +28,7 @@ public class Hint {
                     if(tempSolution.get(j).equals(tempGuess.get(i))) {
                         parCounter++;
                         tempSolution.put(j,"checked");
-                        tempSolution.put(i, "checkedPartial");
+                        tempGuess.put(i, "checkedPartial");
                     }
                 }
             }

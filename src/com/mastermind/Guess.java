@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Guess {
-    private Map<Integer,String> guess = new HashMap<>(); //do we make a guess factory instead?
+    private Map<Integer,String> guess = new HashMap<>();
 
     // Constructors
     public Guess(){
