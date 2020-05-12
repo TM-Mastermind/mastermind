@@ -13,7 +13,17 @@ public class Game {
 
     public void start(){
         Player p1 = new Player();
-        p1.showInstructions();
+        System.out.println( p1.getName() + " : , New to Game? Need Instructions to play?, Press H or h, If you do not need help");
+        System.out.println(" Press any other key to continue...")  ;
+        Scanner sc = new Scanner(System.in);
+        String help=  sc.next();
+        if(help.equals("h")||help.equals("H")){
+            System.out.println("Computer randomly/Secretly chooses  colors in sequence which is hidden to Player,  ");
+            System.out.println(" you have to match same colors in same Sequences,");
+            System.out.println("until you matches all colors in same sequence or run out of trial  ");
+            System.out.println("After end of the every trial Computer will provide feed back in below symbol  ");
+            System.out.println("+ : If Player guess(color) match with Computer color and in same Sequence");
+            System.out.println("- : If Player guess(color) match with Computer color but not same oder");}
         System.out.println("Okay " + p1.getName() + ", get ready to play Mastermind");
         Solution sol = new Solution();
         GameBoard g1 = new GameBoard(sol);
