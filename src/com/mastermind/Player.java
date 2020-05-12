@@ -17,17 +17,6 @@ public class Player {
         name = sc.nextLine();
     }
 
-    public boolean showInstructions(){
-        String instructions = "This is how you play...";
-        System.out.println("Hi " + getName() + " do you want to view the game instructions? enter Y/N");
-        String insAnswer = sc.nextLine().toUpperCase();
-        if(insAnswer.contains("Y")){
-            System.out.println(instructions);
-        }
-        return true;
-    }
-
-
     public void makeGuess(Solution solution) {
         System.out.println("Enter five colors then press enter/return ");
         String inputGuess = sc.nextLine().toUpperCase().trim();

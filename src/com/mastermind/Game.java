@@ -13,7 +13,6 @@ public class Game {
 
     public void start(){
         Player p1 = new Player();
-        p1.showInstructions();
         System.out.println("Okay " + p1.getName() + ", get ready to play Mastermind");
         Solution sol = new Solution();
         GameBoard g1 = new GameBoard(sol);
