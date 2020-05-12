@@ -23,9 +23,12 @@ public class Solution {
    private int length;
 
     public Solution(){
-       System.out.println("Enter the length of the sequence 3-9");
+       System.out.println("Enter the length of the color sequence 3-9");
         Scanner sc = new Scanner(System.in);
         length = sc.nextInt();
+   }
+   public Solution(int length) {
+        this.length = length;
    }
 
     public void generateColorSequence() {
