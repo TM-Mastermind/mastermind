@@ -1,7 +1,6 @@
 package com.mastermind;
 
 public class GameBoard {
-    //private int columns = 3;
     private StringBuilder rowWithGuess = new StringBuilder();
     private StringBuilder hintForGuess = new StringBuilder();
     private Player player;
