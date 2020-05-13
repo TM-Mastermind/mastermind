@@ -2,6 +2,7 @@ package com.mastermind;
 
 import java.util.HashMap;
 
+import java.util.InputMismatchException;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -22,11 +23,23 @@ public class Solution {
    private Map<Integer,String> colorSequence;
    private int length;
 
-    public Solution(){
-       System.out.println("Enter the length of the color sequence 3-9");
+    public Solution() {
         Scanner sc = new Scanner(System.in);
-        length = sc.nextInt();
-   }
+        boolean acceptedInput = false;
+        while (!acceptedInput) {
+            System.out.println("Enter the length of the color sequence 3-9");
+            String input = sc.next();
+            if (input.matches("[3-9]")) {
+                acceptedInput = true;
+                int length = Integer.parseInt(input);
+                setLength(length);
+            }
+            else {
+                System.err.println("Sorry, invalid input of " + input + ".\n Hint: valid range [3-9] in digit");
+            }
+        }
+    }
+
    public Solution(int length) {
         this.length = length;
    }

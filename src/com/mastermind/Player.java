@@ -20,7 +20,7 @@ public class Player {
     public void makeGuess(Solution solution) {
         System.out.println("Please choose from these colors:  [R]ed,[O]range,[Y]ellow,[G]reen,[B]black,[P]urple,[W]hite,[S]ilver ");
         String inputGuess = sc.nextLine().toUpperCase().trim();
-        inputGuess= inputGuess.replace(" ", "");
+        inputGuess = inputGuess.replace(" ", "");
 
         Map<Integer,String> map = new HashMap<>();
         for(int i = 0; i < inputGuess.length(); i++){
