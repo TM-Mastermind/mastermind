@@ -14,9 +14,16 @@ public class SolutionTest {
     }
 
     @Test
-    public void shouldGenerateSolutionWithRandomColors() {
+    public void shouldGenerateSolutionWithSpecifiedSize() {
         sol.generateColorSequence();
         assertEquals(4, sol.getColorSequence().size());
     }
+
+    @Test
+    public void shouldContainOnlySelectedCharacters() {
+        sol.generateColorSequence();
+        assertTrue(sol.getColorSequence().containsValue("\\[A-Z]\\"));//how to do the regex???
+    }
 }
 //"\\[R,O,Y.G,B,P,S]\\"));
+//"\\[R|O|Y|G|B|P|S]\\"

@@ -32,15 +32,10 @@ public class Solution {
    }
 
     public void generateColorSequence() {
-        //List<String> colors = new ArrayList<>();
         Map<Integer,String> colors = new HashMap<>();
         for (int i = 0; i < getLength(); i++) {
             colors.put(i, ALL_COLORS.get(getRandom()));
         }
-//        colors.put(1, ALL_COLORS.get(getRandom()));
-//        colors.put(2, ALL_COLORS.get(getRandom()));
-//        colors.put(3, ALL_COLORS.get(getRandom()));
-//        colors.put(4, ALL_COLORS.get(getRandom()));
         setColorSequence(colors);
     }
 

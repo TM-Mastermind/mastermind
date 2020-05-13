@@ -5,6 +5,7 @@ public class GameBoard {
     private StringBuilder hintForGuess = new StringBuilder();
     private Player player;
     private Solution sol;
+    private int rowCount;
 
     public GameBoard(){
     }
@@ -13,7 +14,7 @@ public class GameBoard {
         sol = solution;
     }
 
-    public String generateRow(Guess guess) {
+    public int generateRow(Guess guess) {
         StringBuilder rowBase = new StringBuilder();
         StringBuilder row = new StringBuilder();
         StringBuilder newRow = new StringBuilder();
@@ -33,10 +34,11 @@ public class GameBoard {
                 rowBase.append("+----");
             }
         }
-        newRow.append("\n" +rowBase + "\n" + row + "     " + hintForGuess + "\n" + rowBase);
+        setRowCount();
+        newRow.append("\n    " +rowBase + "\n" + getRowCount() + ".  " + row + "     " + hintForGuess + "\n    " + rowBase);
         rowWithGuess.append("\n" + newRow);
 
-        return newRow.toString();
+        return getRowCount();
     }
 
     public void generateHintRow(Hint hint) {
@@ -60,10 +62,17 @@ public class GameBoard {
         System.out.println(rowBuilder);
     }
 
-
     // Accessor Methods
 
     public void setPlayer(Player player) {
         this.player = player;
+    }
+
+    public int getRowCount() {
+        return rowCount;
+    }
+
+    public void setRowCount() {
+        rowCount++;
     }
 }
