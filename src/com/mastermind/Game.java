@@ -9,13 +9,14 @@ public class Game {
     boolean isWinner;
     private Solution solution;
     private int rounds = 12;
+    private Scanner sc = new Scanner(System.in);
 
 
-    public void start(){
+    public void start() throws InterruptedException {
         Player p1 = new Player();
         System.out.println( p1.getName() + " : , New to Game? Need Instructions to play?, Press H or h, If you do not need help");
         System.out.println(" Press any other key to continue...")  ;
-        Scanner sc = new Scanner(System.in);
+        //Scanner sc = new Scanner(System.in);
         String help=  sc.next();
         if(help.equals("h")||help.equals("H")){
             System.out.println("Computer randomly/Secretly chooses  colors in sequence which is hidden to Player,  ");
@@ -30,7 +31,8 @@ public class Game {
         setSolution(sol);
         solution.generateColorSequence();
         g1.setPlayer(p1);
-        System.out.println(solution.getColorSequence()); //**Uncomment to check solution at Start
+
+         System.out.println(solution.getColorSequence()); //**Uncomment to check solution at Start
 
         for(int i = 0; i < getRounds(); i++){
             p1.makeGuess(getSolution());
@@ -48,9 +50,22 @@ public class Game {
             }
 
         }
+        Thread.sleep(3000);
+        playAgain();
     }
 
-
+    public void playAgain() throws InterruptedException {
+        System.out.println("Do you want to play again?  Y/N");
+        String play = sc.next().toUpperCase();
+        if(play.contains("Y")){
+            start();
+        }
+        else {
+            System.out.println("Thank you for playing, goodbye.");
+            Thread.sleep(1500);
+            System.exit(0);
+        }
+    }
 
     //Accessor Methods
     public boolean isWinner() {

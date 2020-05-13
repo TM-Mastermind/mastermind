@@ -8,6 +8,9 @@ public class Hint {
     private int partialCorrect;
     private Solution sol;
 
+    public Hint(){
+    }
+
     public Hint(Solution solution){
         sol = solution;
     }

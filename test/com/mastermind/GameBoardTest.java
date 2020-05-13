@@ -15,10 +15,10 @@ public class GameBoardTest {
     Guess guess;
     Map<Integer, String> map = new HashMap<>();
     Hint hint;
-    Solution sol;
+    Solution sol = new Solution(4);
     @Before
     public void setUp() throws Exception {
-        gb = new GameBoard();
+        gb = new GameBoard(sol);
         map.put(0,"R");
         map.put(1,"O");
         map.put(2,"Y");
@@ -33,8 +33,8 @@ public class GameBoardTest {
 
     @Test
     public void shouldGenerateRowsBasedOnNumberOFColumns() {
-        gb.generateRow(guess);
-        //gb.generateBoard(guess,hint);
+        gb.generateBoard(guess,hint);
+        assertEquals(1,gb.getRowCount());
     }
 
     @Test

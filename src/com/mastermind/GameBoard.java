@@ -5,6 +5,7 @@ public class GameBoard {
     private StringBuilder hintForGuess = new StringBuilder();
     private Player player;
     private Solution sol;
+    private int rowCount;
 
     public GameBoard(){
     }
@@ -13,30 +14,22 @@ public class GameBoard {
         sol = solution;
     }
 
-    public String generateRow(Guess guess) {
+    public void generateRow(Guess guess) {
         StringBuilder rowBase = new StringBuilder();
         StringBuilder row = new StringBuilder();
         StringBuilder newRow = new StringBuilder();
         for(int i = 0; i < sol.getLength(); i++){
-            if(i == sol.getLength() - 1) {
-                if (guess != null) {
-                    row.append("|  " + guess.getGuess().get(i) + " |");
-                }
-                else row.append("|    |");
-                rowBase.append("+----+");
-            }
-            else {
                 if (guess != null) {
                     row.append("|  " + guess.getGuess().get(i) + " ");
                 }
                 else row.append("|    ");
                 rowBase.append("+----");
-            }
         }
-        newRow.append("\n" +rowBase + "\n" + row + "     " + hintForGuess + "\n" + rowBase);
+        row.append("|");
+        rowBase.append("+");
+        setRowCount();
+        newRow.append("\n    " +rowBase + "\n" + getRowCount() + ".  " + row + "     " + hintForGuess + "\n    " + rowBase);
         rowWithGuess.append("\n" + newRow);
-
-        return newRow.toString();
     }
 
     public void generateHintRow(Hint hint) {
@@ -60,18 +53,17 @@ public class GameBoard {
         System.out.println(rowBuilder);
     }
 
-
     // Accessor Methods
-
-//    public int getColumns() {
-//        return columns;
-//    }
-//
-//    public void setColumns(int columns) {
-//        this.columns = columns;
-//    }
 
     public void setPlayer(Player player) {
         this.player = player;
+    }
+
+    public int getRowCount() {
+        return rowCount;
+    }
+
+    public void setRowCount() {
+        rowCount++;
     }
 }
