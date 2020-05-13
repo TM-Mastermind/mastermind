@@ -9,7 +9,7 @@ public class Game {
     boolean isWinner;
     private Solution solution;
     private int rounds = 12;
-    private boolean ishelp= false;
+
 
 
     public void start(){
@@ -17,28 +17,26 @@ public class Game {
         GameBoard g1 = new GameBoard(sol);
         setSolution(sol);
         solution.generateColorSequence();
-//        System.out.println("Name: ");
-//        Scanner scanIn = new Scanner(System.in);
-//        String inputString = scanIn.nextLine();
-//        Player p1 = new Player(inputString);
+
         Player p1 = new Player();
         System.out.println("Welcome " + p1.getName() + ", get ready to play Mastermind");
         g1.setPlayer(p1);
         System.out.println(solution.getColorSequence()); //**Uncomment to check solution at Start
-        System.out.println( p1.getName() + " : , New to Game? Need Instructions to play?, Press H or h, If you do not need help");
-          System.out.println(" Press any other key to continue...")  ;
+        System.out.println( p1.getName() + " : , New to Game? Need Instructions to play?, Press H or h, If you do not need help\nPress any other key to continue...");
+
        Scanner sc = new Scanner(System.in);
         String help=  sc.next();
-        if(help.equals("h")||help.equals("H")){
-            System.out.println("Computer randomly/Secretly chooses  colors in sequence which is hidden to Player,  ");
-            System.out.println(" you have to match same colors in same Sequences,");
-            System.out.println("until you matches all colors in same sequence or run out of trial  ");
-            System.out.println("After end of the every trial Computer will provide feed back in below symbol  ");
-            System.out.println("+ : If Player guess(color) match with Computer color and in same Sequence");
-            System.out.println("- : If Player guess(color) match with Computer color but not same oder");}
+        if(help.contains("h")||help.equals("H")){
+            System.out.println("Computer randomly/Secretly chooses  colors in sequence which is hidden to Player,\nyou have to match same colors in same Sequences,\nuntil you matches all colors in same sequence or run out of trial\nAfter end of the every trial Computer will provide feed back in below symbol \n+ : If Player guess(color) match with Computer color and in same Sequence\n- : If Player guess(color) match with Computer color but not same oder   ");}
 
+//         setSolution(p1.setPussleLength());
+//
+//        GameBoard g1= new GameBoard((sol));
+//        setSolution(sol);
+//        solution.getColorSequence();
+        g1.setPlayer(p1);
         for(int i = 0; i < getRounds(); i++){
-            p1.makeGuess(getSolution());
+            p1.makeGuess(getSolution());//can remove solution arg if it lives in Player
             g1.generateBoard(p1.getPlayerGuess().get(i), p1.getHint().get(i));
             if(p1.getPlayerGuess().get(i).getGuess().equals(solution.getColorSequence())) {
                 setWinner(true);
@@ -81,11 +79,5 @@ public class Game {
     public void setRounds(int rounds) {
         this.rounds = rounds;
     }
-    public boolean isIshelp() {
-        return ishelp;
-    }
 
-    public void setIshelp(boolean ishelp) {
-        this.ishelp = ishelp;
-    }
 }

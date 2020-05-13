@@ -19,7 +19,7 @@ public class Player {
 
     public void makeGuess(Solution solution) {
         System.out.println("Please Choose from these colors:  [R]ed, [O]range,[Y]ellow,[G]reen,[B]black, [P]urple,[W]hite,[S]ilver ");
-//        Scanner scanInGuess = new Scanner(System.in);
+
         String inputGuess = sc.nextLine().toUpperCase().trim();
                 inputGuess= inputGuess.replace(" ", "");
 
@@ -59,4 +59,5 @@ public class Player {
     public void setHint(Hint hint) {
         this.hint.add(hint);
     }
+
 }
