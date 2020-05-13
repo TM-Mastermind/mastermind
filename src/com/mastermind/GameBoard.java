@@ -3,7 +3,6 @@ package com.mastermind;
 public class GameBoard {
     private StringBuilder rowWithGuess = new StringBuilder();
     private StringBuilder hintForGuess = new StringBuilder();
-    private Player player;
     private Solution sol;
     private int rowCount;
 
@@ -54,10 +53,6 @@ public class GameBoard {
     }
 
     // Accessor Methods
-
-    public void setPlayer(Player player) {
-        this.player = player;
-    }
 
     public int getRowCount() {
         return rowCount;
