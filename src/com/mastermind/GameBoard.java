@@ -14,31 +14,22 @@ public class GameBoard {
         sol = solution;
     }
 
-    public int generateRow(Guess guess) {
+    public void generateRow(Guess guess) {
         StringBuilder rowBase = new StringBuilder();
         StringBuilder row = new StringBuilder();
         StringBuilder newRow = new StringBuilder();
         for(int i = 0; i < sol.getLength(); i++){
-            if(i == sol.getLength() - 1) {
-                if (guess != null) {
-                    row.append("|  " + guess.getGuess().get(i) + " |");
-                }
-                else row.append("|    |");
-                rowBase.append("+----+");
-            }
-            else {
                 if (guess != null) {
                     row.append("|  " + guess.getGuess().get(i) + " ");
                 }
                 else row.append("|    ");
                 rowBase.append("+----");
-            }
         }
+        row.append("|");
+        rowBase.append("+");
         setRowCount();
         newRow.append("\n    " +rowBase + "\n" + getRowCount() + ".  " + row + "     " + hintForGuess + "\n    " + rowBase);
         rowWithGuess.append("\n" + newRow);
-
-        return getRowCount();
     }
 
     public void generateHintRow(Hint hint) {
