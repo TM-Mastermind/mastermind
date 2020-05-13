@@ -9,29 +9,30 @@ public class Game {
     boolean isWinner;
     private Solution solution;
     private int rounds = 12;
+    private Scanner sc = new Scanner(System.in);
 
 
-    public void start(){
+    public void start() throws InterruptedException {
         Player p1 = new Player();
-        Instructions instructions = new Instructions();
-//        System.out.println( p1.getName() + " : , New to Game? Need Instructions to play?, Press H or h, If you do not need help");
-//        System.out.println(" Press any other key to continue...")  ;
-//        Scanner sc = new Scanner(System.in);
-//        String help=  sc.next();
-//        if(help.equals("h")||help.equals("H")){
-//            System.out.println("Computer randomly/Secretly chooses  colors in sequence which is hidden to Player,  ");
-//            System.out.println(" you have to match same colors in same Sequences,");
-//            System.out.println("until you matches all colors in same sequence or run out of trial  ");
-//            System.out.println("After end of the every trial Computer will provide feed back in below symbol  ");
-//            System.out.println("+ : If Player guess(color) match with Computer color and in same Sequence");
-//            System.out.println("- : If Player guess(color) match with Computer color but not same oder");}
+        System.out.println( p1.getName() + " : , New to Game? Need Instructions to play?, Press H or h, If you do not need help");
+        System.out.println(" Press any other key to continue...")  ;
+        //Scanner sc = new Scanner(System.in);
+        String help=  sc.next();
+        if(help.equals("h")||help.equals("H")){
+            System.out.println("Computer randomly/Secretly chooses  colors in sequence which is hidden to Player,  ");
+            System.out.println(" you have to match same colors in same Sequences,");
+            System.out.println("until you matches all colors in same sequence or run out of trial  ");
+            System.out.println("After end of the every trial Computer will provide feed back in below symbol  ");
+            System.out.println("+ : If Player guess(color) match with Computer color and in same Sequence");
+            System.out.println("- : If Player guess(color) match with Computer color but not same oder");}
         System.out.println("Okay " + p1.getName() + ", get ready to play Mastermind");
         Solution sol = new Solution();
         GameBoard g1 = new GameBoard(sol);
         setSolution(sol);
         solution.generateColorSequence();
         g1.setPlayer(p1);
-        System.out.println(solution.getColorSequence()); //**Uncomment to check solution at Start
+
+         System.out.println(solution.getColorSequence()); //**Uncomment to check solution at Start
 
         for(int i = 0; i < getRounds(); i++){
             p1.makeGuess(getSolution());
@@ -48,6 +49,21 @@ public class Game {
 
             }
 
+        }
+        Thread.sleep(3000);
+        playAgain();
+    }
+
+    public void playAgain() throws InterruptedException {
+        System.out.println("Do you want to play again?  Y/N");
+        String play = sc.next().toUpperCase();
+        if(play.contains("Y")){
+            start();
+        }
+        else {
+            System.out.println("Thank you for playing, goodbye.");
+            Thread.sleep(1500);
+            System.exit(0);
         }
     }
 
