@@ -13,7 +13,7 @@ public class Solution {
    public static final Map<Integer,String> ALL_COLORS = ofEntries(
             entry(1,"R"),
             entry(2,"O"),
-            entry(3,"Y"),       //should we put this in its own file? In a util package?
+            entry(3,"Y"),
             entry(4,"G"),
             entry(5,"B"),
             entry(6,"P"),

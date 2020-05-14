@@ -36,12 +36,4 @@ public class GameBoardTest {
         gb.generateBoard(guess,hint);
         assertEquals(1,gb.getRowCount());
     }
-
-    @Test
-    public void generateHintRow() {
-    }
-
-    @Test
-    public void generateBoard() {
-    }
 }

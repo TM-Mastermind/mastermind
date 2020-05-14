@@ -19,13 +19,13 @@ public class Game {
         if(help.contains("h")||help.equals("H")){
             System.out.println("Computer randomly/secretly chooses colors in sequence which is hidden to player,\nyou have to match same colors in same sequences,\nuntil you matches all colors in same sequence or run out of trial\nAfter end of the every trial computer will provide feed back in below symbol \n\n     + : If player guess(color) match with computer color and in the same sequence\n     - : If player guess(color) match with computer color but NOT in the same order\n");}
 
-        System.out.println("Okay " + player.getName() + ", get ready to play Mastermind");
+        System.out.println("Okay " + player.getName() + ", get ready to play Mastermind\n");
         Solution sol = new Solution();
         sol.generateColorSequence();
         GameBoard g1 = new GameBoard(sol);
         setSolution(sol);
 
-         System.out.println(solution.getColorSequence()); //**Uncomment to check solution at Start
+        // System.out.println(solution.getColorSequence()); //**Uncomment to check solution at Start
 
         for(int i = 0; i < getRounds(); i++){
             player.makeGuess(solution);
