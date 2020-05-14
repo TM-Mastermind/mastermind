@@ -12,7 +12,7 @@ public class Game {
 
     public void start() {
         setPlayer(new Player());
-        System.out.println( player.getName() + " : , New to Game? Need instructions to play?, Press H or h, or if you do not need help\nPress any other key to continue...");
+        System.out.println( "Welcome to Mastermind " + player.getName() + ".  Are you new to the game? Do you need instructions on how to play?, Press H or h for Help.\nIf you do not need help press any other key to continue...");
 
         Scanner sc = new Scanner(System.in);
         String help=  sc.next();
