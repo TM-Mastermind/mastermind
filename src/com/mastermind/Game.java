@@ -10,7 +10,7 @@ public class Game {
     private Player player;
 
 
-    public void start() throws InterruptedException {
+    public void start() {
         setPlayer(new Player());
         System.out.println( player.getName() + " : , New to Game? Need instructions to play?, Press H or h, or if you do not need help\nPress any other key to continue...");
 
