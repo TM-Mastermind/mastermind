@@ -17,7 +17,12 @@ public class Game {
         Scanner sc = new Scanner(System.in);
         String help=  sc.next();
         if(help.contains("h")||help.equals("H")){
-            System.out.println("Computer randomly/secretly chooses colors in sequence which is hidden to player,\nyou have to match same colors in same sequences,\nuntil you matches all colors in same sequence or run out of trial\nAfter end of the every trial computer will provide feed back in below symbol \n\n     + : If player guess(color) match with computer color and in the same sequence\n     - : If player guess(color) match with computer color but NOT in the same order\n");}
+            System.out.println( "The game randomly chooses colors in a sequence which is hidden from the Player.\n" +
+                    "The object of the game is to match the same colors in the same ordered sequence,\n" +
+                    "compared to the hidden solution. You will have a maximum of 12 tries to match the sequence.\n" +
+                    "After the end of the every trial the game will provide feedback through the below symbols: \n\n" +
+                    "     + (plus) = If Player guess(color) matches with the solution color and in the same sequence. \n" +
+                    "     - (minus) = If Player guess(color) matches with the solution color but NOT the same sequence.\n\n");}
 
         System.out.println("Okay " + player.getName() + ", get ready to play Mastermind\n");
         Solution sol = new Solution();
